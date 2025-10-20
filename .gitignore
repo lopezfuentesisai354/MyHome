@@ -1,0 +1,60 @@
+# Archivos de la aplicación compilada (Build Artifacts)
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+*.class
+
+# Directorios de salida de la compilación
+/build/
+/out/
+*/build/
+
+# Archivos de Gradle
+.gradle/
+# Archivos Wrapper de Gradle (son pequeños y necesarios para que otros puedan compilar)
+!gradle/wrapper/gradle-wrapper.jar
+
+# Archivos de configuración local y sensible
+local.properties
+# Archivos de Keystore (¡Nunca deben estar en control de versiones!)
+*.jks
+*.keystore
+
+# Archivos de la IDE (Android Studio / IntelliJ IDEA)
+.idea/
+# Excepto los que contienen información compartida
+!/.idea/modules.xml
+!/.idea/vcs.xml
+!/.idea/compiler.xml
+!/.idea/codeStyles
+!/.idea/codeStyles/
+
+# Archivos de módulos generados por IntelliJ
+*.iml
+*.iws
+*.ipr
+
+# Capturas de Android Studio y archivos de depuración
+/captures/
+*.log
+*.hprof
+
+# Archivos de Android NDK (si se usa código nativo C/C++)
+.externalNativeBuild
+.cxx/
+
+# Archivos específicos del Sistema Operativo
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+
+# Configuración de Firebase o servicios externos (Solo si tienen datos sensibles de claves API)
+# Si tu 'google-services.json' contiene claves API que deben ser privadas, descomenta la línea de abajo.
+# Si solo tiene ID de proyecto y se considera seguro compartir, déjalo comentado.
+# /app/google-services.json
+
+# Archivos generados en modo 'release' (lanzamiento)
+app/release
