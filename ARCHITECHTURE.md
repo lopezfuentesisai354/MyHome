@@ -2,7 +2,7 @@
 
 ## 1. Introducción
 
-Este documento proporciona una explicación detallada de la organización de carpetas y archivos dentro del proyecto **MyHome**.  
+Este documento proporciona una explicación detallada de la organización de carpetas y archivos dentro del proyecto **MyHome**.
 El objetivo es mantener una base de código limpia, escalable y fácil de mantener, siguiendo el patrón de arquitectura **Package-by-Feature** (Paquetes por Funcionalidad) dentro del módulo principal de Android.
 
 ---
@@ -11,6 +11,7 @@ El objetivo es mantener una base de código limpia, escalable y fácil de manten
 
 La carpeta raíz (`MyHome/`) contiene los elementos principales del proyecto y la configuración global:
 
+```text
 MyHome/
 │
 ├── .gitignore          # Archivos y carpetas ignorados por Git.
@@ -27,11 +28,13 @@ MyHome/
 └── gradle/             # Configuración del Gradle Wrapper.
     ├── libs.versions.toml # Catálogo centralizado de versiones de dependencias (Version Catalog).
     └── wrapper/        # Archivos del Gradle Wrapper (jar y properties).
+```
 
 ## 3. Módulo app (Aplicación Android)
 
 Este es el módulo principal donde reside la lógica y la interfaz de usuario de la aplicación.
 
+```text
 app/
 │
 ├── build.gradle.kts     # Script de configuración específico del módulo 'app' (dependencias, plugins, config. Android).
@@ -41,12 +44,13 @@ app/
     ├── androidTest/     # Código fuente para tests instrumentados (requieren emulador/dispositivo).
     ├── main/            # Código fuente y recursos principales de la aplicación. (Detallado abajo)
     └── test/            # Código fuente para tests unitarios locales (corren en la JVM).
-
+```
 
 ### 3.1. app/src/main/
 
 El directorio principal para el código y recursos de la aplicación.
 
+```text
 app/src/main/
 │
 ├── AndroidManifest.xml # Manifiesto de la aplicación (permisos, componentes, metadatos).
@@ -99,30 +103,26 @@ app/src/main/
     │   └── themes.xml   # Temas XML base (antes de Compose).
     ├── xml/             # Archivos XML genéricos.
     └── font/            # (Opcional) Fuentes personalizadas.
-
+```
 
 ### 3.2. Desglose de java/com/example/myhome/
 
-core/: Contiene todo lo que no es específico de una única feature.
-
-core/data: Separa la lógica de obtención/almacenamiento de datos del resto de la app.
-
-core/di: Centraliza la creación de objetos y dependencias.
-
-core/ui: Promueve consistencia visual y reutilización de componentes.
-
-features/: Contiene las funcionalidades (cada subcarpeta = una feature).
+- **core/:** Contiene todo lo que no es específico de una única feature.
+- **core/data:** Separa la lógica de obtención/almacenamiento de datos del resto de la app.
+- **core/di:** Centraliza la creación de objetos y dependencias.
+- **core/ui:** Promueve consistencia visual y reutilización de componentes.
+- **features/:** Contiene las funcionalidades (cada subcarpeta = una feature).
 
 Cada feature incluye sus pantallas (Screen.kt), su lógica (ViewModel.kt) y sus fuentes de datos (Repository.kt o UseCase.kt).
 
-navigation/: Define cómo se conectan las pantallas (Compose Navigation).
+- **navigation/:** Define cómo se conectan las pantallas (Compose Navigation).
 
 ## 4. Tests (app/src/androidTest/ y app/src/test/)
 
-androidTest/: Tests instrumentados que requieren un dispositivo o emulador.
+- **androidTest/:** Tests instrumentados que requieren un dispositivo o emulador.
 Ideales para pruebas de UI (Compose UI Tests) o integración con componentes del framework Android.
 
-test/: Tests unitarios que se ejecutan en la JVM local.
+- **test/:** Tests unitarios que se ejecutan en la JVM local.
 Ideales para ViewModels, Repositorios o clases de utilidad puras.
 
 ## 5. Conclusión
@@ -131,14 +131,10 @@ Esta estructura basada en funcionalidades (Package-by-Feature) proporciona una b
 
 Ventajas principales:
 
-🧩 Modularidad: Las funcionalidades están bien separadas.
+- **🧩 Modularidad:** Las funcionalidades están bien separadas.
+- **🚀 Escalabilidad:** Facilita agregar nuevas features o extraerlas a módulos independientes.
+- **🧠 Mantenibilidad:** El código relacionado con cada característica está agrupado.
+- **👥 Colaboración:** Permite trabajo paralelo sin conflictos.
+- **🧪 Testabilidad:** La separación en capas y el uso de DI facilita las pruebas unitarias e integradas.
 
-🚀 Escalabilidad: Facilita agregar nuevas features o extraerlas a módulos independientes.
-
-🧠 Mantenibilidad: El código relacionado con cada característica está agrupado.
-
-👥 Colaboración: Permite trabajo paralelo sin conflictos.
-
-🧪 Testabilidad: La separación en capas y el uso de DI facilita las pruebas unitarias e integradas.
-
-Es importante ser consistente y adherirse a esta estructura a medida que el proyecto evoluciona.
+**Es importante ser consistente y adherirse a esta estructura a medida que el proyecto evoluciona.**
