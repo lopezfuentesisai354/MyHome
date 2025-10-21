@@ -1,0 +1,56 @@
+# Archivos de la aplicación compilada (Build Artifacts)
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+*.class
+
+# Directorios de salida de la compilación
+/build/
+/out/
+*/build/
+
+# Archivos de Gradle Cache
+.gradle/
+# Archivos Wrapper de Gradle (son pequeños y necesarios, no los ignores)
+!gradle/wrapper/gradle-wrapper.jar
+!**/gradle-wrapper.jar
+
+# Archivos de configuración local y sensible
+local.properties
+# Archivos de Keystore (¡Nunca deben estar en control de versiones!)
+*.jks
+*.keystore
+
+# Archivos de la IDE (Android Studio / IntelliJ IDEA)
+# Ignora la carpeta .idea completa, excepto los archivos que sí quieres compartir
+.idea/*
+!.idea/modules.xml
+!.idea/vcs.xml
+!.idea/compiler.xml
+!.idea/kotlinc.xml
+!.idea/codeStyles/
+!.idea/migrations.xml
+!.idea/workspace.xml # Puedes descomentar esto si prefieres no compartir tu workspace
+
+# Archivos de módulos generados por IntelliJ
+*.iml
+
+# Capturas de Android Studio y archivos de depuración/profiling
+/captures/
+*.log
+*.hprof # Para ignorar los archivos de volcado de memoria como el que tenías
+
+# Archivos de Android NDK (si se usa código nativo C/C++)
+.externalNativeBuild
+.cxx/
+
+# Archivos específicos del Sistema Operativo
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+
+# Configuración de Firebase o servicios externos (Solo si tienen datos sensibles)
+# /app/google-services.json
